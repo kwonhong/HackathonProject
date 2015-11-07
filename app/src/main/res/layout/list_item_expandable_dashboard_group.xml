@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@null"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/cardview1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="false">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <com.hackathonproject.Font.RobotoTextView
+                        android:id="@+id/monthTxtView"
+                        style="@style/TextViewAppearance.Display1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="0dp"
+                        android:paddingRight="10dp"
+                        android:text="Mar"
+                        android:textColor="@color/material_grey_900"
+                        android:textSize="15dp" />
+
+                    <com.hackathonproject.Font.RobotoTextView
+                        android:id="@+id/dayTxtView"
+                        style="@style/TextViewAppearance.Display1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/monthTxtView"
+                        android:paddingBottom="0dp"
+                        android:paddingRight="0dp"
+                        android:paddingTop="0dp"
+                        android:text="30"
+                        android:textColor="@color/material_grey_900"
+                        android:textSize="40dp" />
+
+
+                    <com.hackathonproject.Font.RobotoTextView
+                        android:id="@+id/numTransactionLabelTxtView"
+                        style="@style/TextViewAppearance.Caption2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/monthTxtView"
+                        android:paddingBottom="0dp"
+                        android:paddingLeft="30dp"
+                        android:paddingTop="0dp"
+                        android:text="Number of Transaction: " />
+
+                    <com.hackathonproject.Font.RobotoTextView
+                        android:id="@+id/highTransactionAmountTxtView"
+                        style="@style/TextViewAppearance.Caption2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/numTransactionLabelTxtView"
+                        android:layout_below="@+id/numTransactionLabelTxtView"
+                        android:paddingBottom="0dp"
+                        android:paddingLeft="30dp"
+                        android:paddingTop="0dp"
+                        android:text="Highest Transaction Amount: " />
+
+                    <com.hackathonproject.Font.RobotoTextView
+                        android:id="@+id/expenseLabelTxtView"
+                        style="@style/TextViewAppearance.Body2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/highTransactionAmountTxtView"
+                        android:layout_toRightOf="@+id/monthTxtView"
+                        android:paddingBottom="0dp"
+                        android:paddingLeft="30dp"
+                        android:paddingRight="0dp"
+                        android:text="Expense:"
+                        android:textColor="@color/material_grey_900" />
+
+                    <com.hackathonproject.Font.RobotoTextView
+                        android:id="@+id/incomeLabelTxtView"
+                        style="@style/TextViewAppearance.Body2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/highTransactionAmountTxtView"
+                        android:layout_toRightOf="@+id/expenseLabelTxtView"
+                        android:paddingBottom="0dp"
+                        android:layout_marginLeft="10dp"
+                        android:paddingLeft="30dp"
+                        android:paddingRight="0dp"
+                        android:text="Income:"
+                        android:textColor="@color/material_grey_900" />
+
+
+                    <com.hackathonproject.Font.RobotoTextView
+                        android:id="@+id/expenseTxtView"
+                        style="@style/TextViewAppearance.Body2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/expenseLabelTxtView"
+                        android:layout_alignLeft="@+id/expenseLabelTxtView"
+                        android:paddingBottom="0dp"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/material_red_300"
+                        android:text="\u20A9 44,000" />
+
+
+                    <com.hackathonproject.Font.RobotoTextView
+                        android:id="@+id/incomeTxtView"
+                        style="@style/TextViewAppearance.Body2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/incomeLabelTxtView"
+                        android:layout_below="@+id/incomeLabelTxtView"
+                        android:paddingBottom="0dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="\u20A9 44,000"
+                        android:textColor="@color/material_blue_300"
+                        />
+
+                </RelativeLayout>
+
+
+                <!--<com.hackathonproject.Font.RobotoTextView-->
+                    <!--android:id="@+id/dateTxtView"-->
+                    <!--style="@style/TextViewAppearance.Headline2"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Sept 19, 2015"-->
+                    <!--android:textColor="@color/white"-->
+                    <!--android:textSize="17dp" />-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="right"-->
+                    <!--android:orientation="horizontal">-->
+
+                <!--</LinearLayout>-->
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

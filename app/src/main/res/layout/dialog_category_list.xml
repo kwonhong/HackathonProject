@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="500dp"
+    android:background="@color/white"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:minHeight="500dp"
+    android:minWidth="350dp"
+    android:orientation="vertical">
+
+
+    <ysdesigns.moneytrackerapp.Font.RobotoTextView
+        android:id="@+id/title"
+        style="@style/TextViewAppearance.Body3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingTop="20dp"
+        android:textColor="@color/material_grey_800"
+        android:textSize="20sp"
+        android:text="Select a category" />
+
+    <!-- Divider -->
+    <!--<View-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="1dp"-->
+    <!--android:background="@color/material_grey_400" />-->
+
+    <ListView
+        android:id="@+id/list"
+        android:paddingLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="350dp">
+
+    </ListView>
+
+    <ysdesigns.moneytrackerapp.Font.RobotoTextView
+        android:id="@+id/addCategoryBtn"
+        style="@style/TextViewAppearance.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/transparent_button_selector"
+        android:gravity="right"
+        android:text="ADD NEW CATEGORY"
+        android:textColor="@color/material_yellow_600" />
+
+
+</LinearLayout>

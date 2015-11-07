@@ -1,0 +1,234 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:id="@+id/captionLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right">
+
+            <ysdesigns.moneytrackerapp.Font.RobotoTextView
+                style="@style/TextViewAppearance.Caption1"
+                android:id="@+id/captionTxtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="Right Swipe to add Income Transaction"
+                android:padding="0dp">
+            </ysdesigns.moneytrackerapp.Font.RobotoTextView>
+
+        </LinearLayout>
+
+        <!-- Balance Amount Layout -->
+        <LinearLayout
+            android:id="@+id/balanceLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ysdesigns.moneytrackerapp.Font.RobotoTextView
+                android:id="@+id/balanceSignTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="\u20A9"
+                android:textColor="@color/material_yellow_600"
+                android:textSize="50sp" />
+
+
+            <ysdesigns.moneytrackerapp.Font.RobotoTextView
+                android:id="@+id/balanceTxt"
+                android:paddingLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="5,000"
+                android:textColor="@color/material_yellow_600"
+                android:textSize="50sp" />
+
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:id="@+id/divider_top"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/header_navigation_drawer_social_image"
+            android:background="@color/material_grey_300" />
+
+        <!-- Category Layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:clickable="true"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/categoryTxtView"
+                style="@style/Base.Widget.AppCompat.Spinner.DropDown.ActionBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:editable="false"
+                android:paddingLeft="10dp"
+                android:text="Restaurant"
+                android:textSize="15sp" />
+
+
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@color/material_grey_300" />
+
+        <!-- Description Layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/descriptionImg"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_description" />
+
+            <EditText
+                android:id="@+id/descriptionEditTxt"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:background="@android:color/transparent"
+                android:gravity="center_vertical"
+                android:hint="Description (Optional)"
+                android:textColorHighlight="@color/main_color_grey_900"
+                android:textSize="15sp"></EditText>
+
+        </LinearLayout>
+
+        <!-- Divier Layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/abc_btn_rating_star_on_mtrl_alpha"
+                android:visibility="invisible" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="5"
+                android:background="@color/material_grey_300" />
+
+        </LinearLayout>
+
+
+        <!-- Calendar Layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/calendarImg"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_calendar" />
+
+            <TextView
+                android:id="@+id/calendarTxt"
+                style="@style/Base.Widget.AppCompat.Spinner.DropDown.ActionBar"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:clickable="true"
+                android:editable="false"
+                android:text="Today, March, 17th"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <!-- Divier Layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/abc_btn_rating_star_on_mtrl_alpha"
+                android:visibility="invisible" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="5"
+                android:background="@color/material_grey_300" />
+
+        </LinearLayout>
+
+        <!-- Button Layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <ysdesigns.moneytrackerapp.Font.RobotoTextView
+                android:id="@+id/btnCancel"
+                style="@style/TextViewAppearance.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/transparent_button_selector"
+                android:gravity="right"
+                android:text="CANCEL"
+                android:textColor="@color/material_grey_900" />
+
+
+            <ysdesigns.moneytrackerapp.Font.RobotoTextView
+                android:id="@+id/btnSubmit"
+                style="@style/TextViewAppearance.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/transparent_button_selector"
+                android:gravity="right"
+                android:text="SUBMIT"
+                android:textColor="@color/material_grey_900" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

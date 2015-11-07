@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/eventContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:background="@drawable/card_background_white"
+    android:orientation="vertical">
+
+    <ysdesigns.moneytrackerapp.Font.RobotoTextView
+        style="@style/TextViewAppearance.Headline1"
+        android:paddingBottom="0dp"
+        android:paddingTop="20dp"
+        android:text="All"
+        android:textColor="@color/material_green_500" />
+
+    <ysdesigns.moneytrackerapp.Font.RobotoTextView
+        style="@style/TextViewAppearance.Caption1"
+        android:paddingTop="0dp"
+        android:text="Showing all transactions" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:id="@+id/incomeRelativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ysdesigns.moneytrackerapp.Font.RobotoTextView
+                android:id="@+id/txtViewIncomeLabel"
+                style="@style/TextViewAppearance.Body3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="0dp"
+                android:paddingTop="0dp"
+                android:textColor="@color/material_grey_700"
+                android:text="Incomes" />
+
+            <ysdesigns.moneytrackerapp.Font.RobotoTextView
+                android:id="@+id/txtViewTotalIncome"
+                style="@style/TextViewAppearance.Body3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:paddingBottom="0dp"
+                android:paddingRight="20dp"
+                android:paddingTop="0dp"
+                android:textColor="@color/material_blue_300"
+                android:text="\u20A9 44,000" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/expenseRelativeLayout"
+            android:layout_below="@+id/incomeRelativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ysdesigns.moneytrackerapp.Font.RobotoTextView
+                android:textColor="@color/material_grey_700"
+                style="@style/TextViewAppearance.Body3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp"
+                android:text="Expenses" />
+
+            <ysdesigns.moneytrackerapp.Font.RobotoTextView
+                android:id="@+id/txtViewTotalExpense"
+                style="@style/TextViewAppearance.Body3"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp"
+                android:paddingRight="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/material_red_300"
+                android:text="\u20A9 34,000" />
+
+            <View
+                android:id="@+id/divider_top"
+                android:layout_width="100dp"
+                android:layout_height="2dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="3dp"
+                android:layout_alignRight="@+id/txtViewTotalExpense"
+                android:layout_below="@+id/txtViewTotalExpense"
+                android:background="@color/material_grey_300" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_below="@+id/expenseRelativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ysdesigns.moneytrackerapp.Font.RobotoTextView
+                android:id="@+id/txtViewTotalBalance"
+                style="@style/TextViewAppearance.Body3"
+                android:paddingTop="5dp"
+                android:paddingRight="20dp"
+                android:textSize="15dp"
+                android:paddingBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/material_green_400"
+                android:text="\u20A9 34,000" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

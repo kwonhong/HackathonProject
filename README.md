@@ -1,2 +1,0 @@
-# HackathonProject
-Hackathon Project

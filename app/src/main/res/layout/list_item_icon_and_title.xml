@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/list_item_expandable_shop_child_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/imageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/ic_calendar"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp"
+            app:civ_fill_color="#ff0000" />
+
+        <ysdesigns.moneytrackerapp.Font.RobotoTextView
+            style="@style/TextViewAppearance.Body2"
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp"
+            android:layout_toRightOf="@+id/imageView"
+            android:maxLines="1"
+            android:gravity="center"
+            android:text="PAY WITH PAYPAL"
+            android:textColor="@color/main_color_grey_900"/>
+
+    </RelativeLayout>
+
+</LinearLayout>
