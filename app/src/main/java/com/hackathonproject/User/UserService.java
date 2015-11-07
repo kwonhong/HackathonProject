@@ -3,10 +3,14 @@ package com.hackathonproject.User;
 import java.util.Arrays;
 import java.util.List;
 
+import lombok.Getter;
+
 /**
  * Created by james on 15-11-07.
  */
 public class UserService {
+
+    public static User selectedUser;
 
     // TODO get User information
     public User getCurrentUserInformation() {

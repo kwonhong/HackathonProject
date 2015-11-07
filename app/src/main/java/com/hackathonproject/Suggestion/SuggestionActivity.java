@@ -1,4 +1,4 @@
-package com.hackathonproject;
+package com.hackathonproject.Suggestion;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,12 +7,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.hackathonproject.R;
 import com.hackathonproject.Routine.RoutineService;
 import com.hackathonproject.Search.SearchActivity;
 import com.hackathonproject.Suggestion.SuggestionResultViewActivity;
+import com.hackathonproject.User.User;
+import com.hackathonproject.User.UserService;
 
-public class MainActivity extends AppCompatActivity {
+public class SuggestionActivity extends AppCompatActivity {
 
     private RoutineService routineService = new RoutineService();
 
@@ -39,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        if (User.LoginType.getLoginType(UserService.selectedUser.getLoggedInType()) == User.LoginType.FOLLOWING) {
+            Toast.makeText(this, "Following", Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override

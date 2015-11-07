@@ -6,13 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.hackathonproject.MainActivity;
+import com.hackathonproject.Routine.NewsFeedActivity;
+import com.hackathonproject.Suggestion.SuggestionActivity;
 import com.hackathonproject.R;
-import com.hackathonproject.Search.SearchResult;
 import com.hackathonproject.User.User;
+import com.hackathonproject.User.UserService;
 
 import java.util.List;
 
@@ -49,17 +49,30 @@ public class SelectUserListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        convertView =  (convertView == null) ? setUpConvertView(parent) : convertView;
+        convertView = (convertView == null) ? setUpConvertView(parent) : convertView;
         final ViewHolder viewHolder = (ViewHolder) convertView.getTag();
 
-        User user = userList.get(position);
+        final User user = userList.get(position);
         viewHolder.name.setText("Name: " + user.getUserName());
         viewHolder.type.setText("Type: " + User.LoginType.getLoginType(user.getLoggedInType()).toString());
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, MainActivity.class);
-                context.startActivity(intent);
+                User.LoginType loginType = User.LoginType.getLoginType(user.getLoggedInType());
+                switch (loginType) {
+                    case FOLLOWING:
+                        Intent intent = new Intent(context, NewsFeedActivity.class);
+                        UserService.selectedUser = user;
+                        context.startActivity(intent);
+                        break;
+
+                    case USER:
+                        Intent suggestionIntent = new Intent(context, SuggestionActivity.class);
+                        UserService.selectedUser = user;
+                        context.startActivity(suggestionIntent);
+                        break;
+                }
+
             }
         });
 
