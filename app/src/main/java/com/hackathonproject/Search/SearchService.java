@@ -6,13 +6,15 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+
+import org.json.JSONObject;
+
 
 /**
  * Created by james on 15-11-07.
@@ -37,27 +39,35 @@ public class SearchService {
 
             // Parse Data Received
             String queryResult = query(qo);
-            // Convert queryResult to JsonObject
-//            SearchResultParser.getSearchResult()
-//            System.out.println(query(qo));
+            JSONObject jsonObject = new JSONObject(queryResult);
+            return SearchResultParser.getSearchResult(jsonObject);
 
         } catch (Exception je) {
             System.out.println(je.toString());
         }
 
-        List<String> categoryTexts = SearchCategory.categoryList;
-        List<SearchResult> searchResults = new ArrayList<>();
-        for (String string : categoryTexts) {
-            if (string.contains(query)) {
-//                searchResults.add(new SE)
-
-            }
-        }
         // TODO Get Search Result & Populate
+        return Collections.emptyList();
+    }
 
+    public SearchResult getSearchResult(int entityID) {
+        try {
+            QueryOption qo = new QueryOption();
+            qo.setEntityId(entityID);
 
-        return searchResults;
+            // Parse Data Received
+            String queryResult = query(qo);
+            JSONObject jsonObject = new JSONObject(queryResult);
+            List<SearchResult> list = SearchResultParser.getSearchResult(jsonObject);
+            if (!list.isEmpty()) {
+                return list.get(0);
+            }
 
+        } catch (Exception je) {
+            System.out.println(je.toString());
+        }
+
+        return null;
     }
 
     public void populateAutoCompleteStrings(List<String> list, String word) {

@@ -17,6 +17,8 @@ public class SearchResult {
     private Location location;
     private String phoneNumber;
     private String address;
-    private String type;
+    private String entTypeID;
+    private String entID;
+
 }
 

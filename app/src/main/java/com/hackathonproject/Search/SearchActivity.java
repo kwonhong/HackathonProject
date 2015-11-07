@@ -49,7 +49,7 @@ public class SearchActivity extends AppCompatActivity {
         searchResultListAdapter = new SearchResultListAdapter(this);
         searchResultListAdapter.setSearchResultList(Collections.<SearchResult>emptyList());
         listView = (ListView) findViewById(R.id.list_view);
-//        listView.setAdapter(searchResultListAdapter);
+        listView.setAdapter(searchResultListAdapter);
 
         searchTxtViewCancelBtn = (TextView) findViewById(R.id.search_x);
         searchTxtViewCancelBtn.setOnClickListener(new View.OnClickListener() {

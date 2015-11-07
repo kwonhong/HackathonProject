@@ -48,9 +48,9 @@ public class SuggestionActivity extends AppCompatActivity {
             }
         });
 
-        if (User.LoginType.getLoginType(UserService.selectedUser.getLoggedInType()) == User.LoginType.FOLLOWING) {
-            Toast.makeText(this, "Following", Toast.LENGTH_LONG).show();
-        }
+//        if (User.LoginType.getLoginType(UserService.selectedUser.getLoggedInType()) == User.LoginType.FOLLOWING) {
+//            Toast.makeText(this, "Following", Toast.LENGTH_LONG).show();
+//        }
     }
 
     @Override

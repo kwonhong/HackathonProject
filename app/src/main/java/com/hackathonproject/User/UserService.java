@@ -23,7 +23,7 @@ public class UserService {
 
     public List<User> getDefaultUser() {
         return Arrays.asList(
-                new User("TestingUser", new Location(), "aksjdhf", User.LoginType.FOLLOWING.getTypeKey()),
-                new User("TestingUser2", new Location(), "aksjdhf", User.LoginType.USER.getTypeKey()));
+                new User("TestingUser", new Location(0.0, 0.0), "aksjdhf", User.LoginType.FOLLOWING.getTypeKey()),
+                new User("TestingUser2", new Location(0.0, 0.0), "aksjdhf", User.LoginType.USER.getTypeKey()));
     }
 }

@@ -1,6 +1,7 @@
 package com.hackathonproject.Search;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 
 import com.hackathonproject.R;
+import com.hackathonproject.Suggestion.SuggestionResultViewActivity;
 
 import java.util.List;
 
@@ -49,9 +51,17 @@ public class SearchResultListAdapter extends BaseAdapter{
         convertView =  (convertView == null) ? setUpConvertView(parent) : convertView;
         final ViewHolder viewHolder = (ViewHolder) convertView.getTag();
 
-        SearchResult searchResult = searchResultList.get(position);
+        final SearchResult searchResult = searchResultList.get(position);
         viewHolder.distance.setText(Double.toString(searchResult.getDistance()));
         viewHolder.title.setText(searchResult.getName());
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, SuggestionResultViewActivity.class);
+                intent.putExtra(SearchCategory.SEARCH_ENTITY_ID, searchResult.getEntID());
+                context.startActivity(intent);
+            }
+        });
 
         return convertView;
     }
