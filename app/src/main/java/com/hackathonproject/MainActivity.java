@@ -1,5 +1,6 @@
 package com.hackathonproject;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,6 +9,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.hackathonproject.Routine.RoutineService;
+import com.hackathonproject.Search.SearchActivity;
+import com.hackathonproject.Suggestion.SuggestionResultViewActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,14 +27,16 @@ public class MainActivity extends AppCompatActivity {
         btnLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                routineService.insertRandomRoutine();
+                Intent intent = new Intent(getApplicationContext(), SuggestionResultViewActivity.class);
+                startActivity(intent);
             }
         });
 
         btnUnLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                routineService.getUserRoutine();
+                Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+                startActivity(intent);
             }
         });
     }

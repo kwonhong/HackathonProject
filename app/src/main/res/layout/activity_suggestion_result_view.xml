@@ -1,0 +1,225 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/google_cards_background_bottom"
+    android:padding="15dp"
+    android:orientation="vertical">
+
+    <!--<include-->
+        <!--android:id="@+id/toolbar"-->
+        <!--layout="@layout/toolbar" />-->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
+
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+
+            <LinearLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <!-- Information -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:orientation="vertical">
+
+                    <com.hackathonproject.Font.RobotoTextView
+                        android:id="@+id/descriptionTxtView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:gravity="left"
+                        android:maxLines="3"
+                        android:text="@string/lorem_ipsum_long"
+                        android:textColor="@color/material_blue_grey_700"
+                        android:textSize="14sp"
+                        app:typeface="robotoRegular" />
+
+                </LinearLayout>
+
+                <!-- Map -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp">
+
+                    <com.hackathonproject.Font.RobotoTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Location Information"
+                        android:textColor="@color/material_yellow_600"
+                        android:textSize="16sp"
+                        app:typeface="robotoLight" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:background="@color/material_yellow_600" />
+
+                    <!-- TODO Get Google API Map & Uncomment this section-->
+                    <!--<fragment-->
+                        <!--android:id="@+id/map"-->
+                        <!--class="com.google.android.gms.maps.MapFragment"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="120dp"-->
+                        <!--android:layout_margin="10dp"-->
+                        <!--android:contentDescription="@string/cd_main_image"-->
+                        <!--android:scaleType="centerCrop" />-->
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:scaleType="centerCrop"
+                        android:layout_margin = "10dp"
+                        android:src="@drawable/drag_and_drop_background_image"/>
+
+
+                </LinearLayout>
+
+                <!-- Contact Information -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:paddingTop="16dp">
+
+                    <com.hackathonproject.Font.RobotoTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Contact Information"
+                        android:textColor="@color/material_yellow_600"
+                        android:textSize="16sp"
+                        app:typeface="robotoLight" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:background="@color/material_yellow_600" />
+
+                    <com.hackathonproject.Font.RobotoTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:gravity="left"
+                        android:maxLines="3"
+                        android:text="@string/lorem_ipsum_long"
+                        android:textColor="@color/material_blue_grey_700"
+                        android:textSize="14sp"
+                        app:typeface="robotoRegular" />
+
+
+
+                </LinearLayout>
+
+                <!-- Hour Information -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:paddingTop="16dp">
+
+                    <com.hackathonproject.Font.RobotoTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Hour Information"
+                        android:textColor="@color/material_yellow_600"
+                        android:textSize="16sp"
+                        app:typeface="robotoLight" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:background="@color/material_yellow_600" />
+
+                    <com.hackathonproject.Font.RobotoTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:gravity="left"
+                        android:maxLines="3"
+                        android:text="@string/lorem_ipsum_long"
+                        android:textColor="@color/material_blue_grey_700"
+                        android:textSize="14sp"
+                        app:typeface="robotoRegular" />
+
+                </LinearLayout>
+
+
+                <!-- Buttons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right">
+
+                    <com.hackathonproject.Font.RobotoTextView
+                        android:id="@+id/btnAccept"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/transparent_button_selector"
+                        android:padding="8dp"
+                        android:text="ACCEPT"
+                        android:textColor="@color/material_green_900"
+                        android:textSize="14sp"
+                        app:typeface="robotoMedium" />
+
+                    <com.hackathonproject.Font.RobotoTextView
+                        android:id="@+id/btnDecline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/transparent_button_selector"
+                        android:padding="8dp"
+                        android:text="DECLINE"
+                        android:textColor="@color/material_red_900"
+                        android:textSize="14sp"
+                        app:typeface="robotoMedium" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </ScrollView>
+
+    </FrameLayout>
+
+</LinearLayout>
