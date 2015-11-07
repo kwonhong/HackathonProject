@@ -25,7 +25,7 @@ public class SearchActivity extends AppCompatActivity {
     private SearchService searchService = new SearchService();
     private SearchResultListAdapter searchResultListAdapter;
     private AutoCompleteTextView autoCompleteTextView;
-    private TextView searchTxtViewCancelBtn;
+    private TextView searchTxtViewCancelBtn, saerchTxtBtn;
     private ListView listView;
 
     String[] language ={"C","C++","Java",".NET","iPhone","Android","ASP.NET","PHP"};
@@ -42,11 +42,9 @@ public class SearchActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>
                 (this,android.R.layout.select_dialog_item,list);
         //Getting the instance of AutoCompleteTextView
-        AutoCompleteTextView actv= (AutoCompleteTextView)findViewById(R.id.search_field);
-        actv.setThreshold(1);//will start working from first character
-        actv.setAdapter(adapter);//setting the adapter data into the AutoCompleteTextView
-        actv.setTextColor(Color.RED);
-
+        autoCompleteTextView= (AutoCompleteTextView)findViewById(R.id.search_field);
+        autoCompleteTextView.setThreshold(1);//will start working from first character
+        autoCompleteTextView.setAdapter(adapter);//setting the adapter data into the AutoCompleteTextView
 
         searchResultListAdapter = new SearchResultListAdapter(this);
         searchResultListAdapter.setSearchResultList(Collections.<SearchResult>emptyList());
@@ -62,6 +60,18 @@ public class SearchActivity extends AppCompatActivity {
                 searchResultListAdapter.notifyDataSetChanged();
             }
         });
+
+        //
+        saerchTxtBtn = (TextView) findViewById(R.id.search);
+        saerchTxtBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                List<SearchResult> searchResults = searchService.getSearchResults(autoCompleteTextView.getText().toString());
+                searchResultListAdapter.setSearchResultList(searchResults);
+                searchResultListAdapter.notifyDataSetChanged();
+            }
+        });
+
 
 
     }

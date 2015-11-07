@@ -15,5 +15,7 @@ public class Routine extends SugarRecord<Routine> {
     }
 
     private long time;
-    private String data;
+    private int entityTypeID;
+    private int entityID;
+    private int frequency;
 }

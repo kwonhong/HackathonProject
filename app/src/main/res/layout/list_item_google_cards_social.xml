@@ -36,37 +36,32 @@
             android:textSize="14sp"
             app:typeface="robotoRegular" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/main_color_500" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="right" >
+            android:gravity="right"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp">
 
             <com.hackathonproject.Font.RobotoTextView
-                android:id="@+id/list_item_google_cards_social_like"
+                android:id="@+id/detailBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
                 android:background="@drawable/transparent_button_selector"
                 android:padding="8dp"
-                android:text="LIKE"
-                android:textColor="@color/main_color_500"
+                android:text="DETAIL"
+                android:textColor="@color/material_green_300"
                 android:textSize="14sp"
                 app:typeface="robotoMedium" />
 
             <com.hackathonproject.Font.RobotoTextView
-                android:id="@+id/list_item_google_cards_social_follow"
+                android:id="@+id/suggestBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
                 android:background="@drawable/transparent_button_selector"
                 android:padding="8dp"
-                android:text="FOLLOW"
-                android:textColor="@color/main_color_500"
+                android:text="SUGGEST"
+                android:textColor="@color/material_blue_600"
                 android:textSize="14sp"
                 app:typeface="robotoMedium" />
         </LinearLayout>

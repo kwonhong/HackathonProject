@@ -36,7 +36,7 @@ public class RoutineService {
     public void insertRandomRoutine() {
         Routine routine = new Routine();
         routine.setTime(new Date().getTime());
-        routine.setData("RandomData");
+//        routine.setData("RandomData");
         routine.save();
     }
 

@@ -19,3 +19,4 @@ public class SearchResult {
     private String address;
     private String type;
 }
+

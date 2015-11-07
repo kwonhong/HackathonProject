@@ -3,6 +3,7 @@ package com.hackathonproject.NewsFeed;
 import java.util.List;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 
 import com.hackathonproject.R;
 import com.hackathonproject.Routine.Routine;
+import com.hackathonproject.Search.SearchActivity;
 import com.hackathonproject.User.User;
 
 import lombok.Setter;
@@ -60,19 +62,33 @@ public class GoogleCardsSocialAdapter extends BaseAdapter{
 					.findViewById(R.id.list_item_google_cards_social_image);
 			holder.text = (TextView) convertView
 					.findViewById(R.id.list_item_google_cards_social_text);
-			holder.like = (TextView) convertView
-					.findViewById(R.id.list_item_google_cards_social_like);
-			holder.follow = (TextView) convertView
-					.findViewById(R.id.list_item_google_cards_social_follow);
+			holder.detailBtn = (TextView) convertView.findViewById(R.id.detailBtn);
+			holder.detailBtn.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View view) {
+					Intent intent = new Intent(context, DetailNewsActivity.class);
+					context.startActivity(intent);
+				}
+			});
+
+			holder.suggestBtn = (TextView) convertView.findViewById(R.id.suggestBtn);
+			holder.suggestBtn.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View view) {
+					Intent intent = new Intent(context, SearchActivity.class);
+					context.startActivity(intent);
+				}
+			});
+
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
 
 
-//		Log.i(LOGGER, "Adapter with position");
+
+
 		Routine routine = routineList.get(position);
-//		holder.place.setText("from Oklahoma");
 		holder.text.setText(R.string.lorem_ipsum_short);
 		holder.like.setTag(position);
 		holder.follow.setTag(position);
@@ -81,6 +97,10 @@ public class GoogleCardsSocialAdapter extends BaseAdapter{
 	}
 
 	private static class ViewHolder {
+		public TextView detailBtn;
+		public TextView suggestBtn;
+
+
 		public ImageView profileImage;
 		public ImageView image;
 		public TextView username;

@@ -12,17 +12,6 @@
         android:layout_height="48dp"
         android:gravity="center_vertical" >
 
-        <com.hackathonproject.Font.FontelloTextView
-            android:id="@+id/searchTxtView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:text="@string/fontello_search"
-            android:textColor="@color/material_grey_600"
-            android:textSize="18dp"
-            tools:ignore="SpUsage" />
-
         <AutoCompleteTextView
             android:id="@+id/search_field"
             android:layout_width="0dp"
@@ -36,12 +25,25 @@
         </AutoCompleteTextView>
 
         <com.hackathonproject.Font.FontelloTextView
+            android:id="@+id/search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="@string/fontello_search"
+            android:clickable="true"
+            android:textColor="@color/material_grey_600"
+            android:textSize="18dp"
+            tools:ignore="SpUsage" />
+
+        <com.hackathonproject.Font.FontelloTextView
             android:id="@+id/search_x"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:text="@string/fontello_x_mark"
+            android:clickable="true"
             android:textColor="@color/material_grey_600"
             android:textSize="18dp"
             tools:ignore="SpUsage" />

@@ -12,6 +12,8 @@ import android.widget.Toast;
 import com.hackathonproject.R;
 import com.hackathonproject.Routine.RoutineService;
 import com.hackathonproject.Search.SearchActivity;
+import com.hackathonproject.Search.SearchCategory;
+import com.hackathonproject.Search.SearchService;
 import com.hackathonproject.Suggestion.SuggestionResultViewActivity;
 import com.hackathonproject.User.User;
 import com.hackathonproject.User.UserService;
@@ -19,6 +21,7 @@ import com.hackathonproject.User.UserService;
 public class SuggestionActivity extends AppCompatActivity {
 
     private RoutineService routineService = new RoutineService();
+    private int searchEntityID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,7 @@ public class SuggestionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), SuggestionResultViewActivity.class);
+                intent.putExtra(SearchCategory.SEARCH_ENTITY_ID, searchEntityID);
                 startActivity(intent);
             }
         });
