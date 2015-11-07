@@ -2,10 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hackathonproject" >
 
-    <!--TODO Figure out google map api-->
-
-    <!--TODO Figure out google auto complete or bing auto complete api -->
-
+    <!-- TODO Figure out google map api -->
+    <!-- TODO Figure out google auto complete or bing auto complete api -->
     <application
         android:name="com.orm.SugarApp"
         android:allowBackup="true"
@@ -15,11 +13,6 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <meta-data
@@ -38,11 +31,19 @@
         <activity
             android:name=".Search.SearchActivity"
             android:label="@string/title_activity_search" >
-
         </activity>
         <activity
             android:name=".Suggestion.SuggestionResultViewActivity"
             android:label="@string/title_activity_suggestion_result_view" >
+        </activity>
+        <activity
+            android:name=".Login.SelectUserActivity"
+            android:label="@string/title_activity_select_user" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

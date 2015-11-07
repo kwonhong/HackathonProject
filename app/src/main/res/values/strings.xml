@@ -189,5 +189,6 @@
     <string name="title_activity_profile">ProfileActivity</string>
     <string name="title_activity_search">SearchActivity</string>
     <string name="title_activity_suggestion_result_view">SuggestionResultViewActivity</string>
+    <string name="title_activity_select_user">SelectUserActivity</string>
 
 </resources>
