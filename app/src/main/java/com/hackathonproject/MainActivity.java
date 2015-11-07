@@ -4,13 +4,36 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+
+import com.hackathonproject.Routine.RoutineService;
 
 public class MainActivity extends AppCompatActivity {
+
+    private RoutineService routineService = new RoutineService();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TextView btnLike = (TextView) findViewById(R.id.btnLike);
+        TextView btnUnLike = (TextView) findViewById(R.id.btnUnLike);
+
+        btnLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                routineService.insertRandomRoutine();
+            }
+        });
+
+        btnUnLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                routineService.getUserRoutine();
+            }
+        });
     }
 
     @Override
