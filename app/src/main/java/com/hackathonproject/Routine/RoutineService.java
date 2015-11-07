@@ -6,6 +6,7 @@ import com.orm.query.Condition;
 import com.orm.query.Select;
 
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -37,6 +38,9 @@ public class RoutineService {
         routine.setTime(new Date().getTime());
         routine.setData("RandomData");
         routine.save();
+    }
 
+    public List<Routine> getDefaultRoutine() {
+        return Arrays.asList(new Routine(), new Routine(), new Routine());
     }
 }

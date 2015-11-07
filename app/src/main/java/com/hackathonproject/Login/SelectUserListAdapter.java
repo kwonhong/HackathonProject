@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.hackathonproject.Routine.NewsFeedActivity;
+import com.hackathonproject.NewsFeed.NewsFeedActivity;
 import com.hackathonproject.Suggestion.SuggestionActivity;
 import com.hackathonproject.R;
 import com.hackathonproject.User.User;

@@ -23,7 +23,7 @@
             android:textSize="18dp"
             tools:ignore="SpUsage" />
 
-        <EditText
+        <AutoCompleteTextView
             android:id="@+id/search_field"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -31,7 +31,9 @@
             android:background="@drawable/edit_text_background_main"
             android:inputType="text"
             android:textColor="@color/main_color_grey_600"
-            android:textCursorDrawable="@drawable/edit_text_cursor_drawable_main" />
+            android:textCursorDrawable="@drawable/edit_text_cursor_drawable_main">
+            <requestFocus />
+        </AutoCompleteTextView>
 
         <com.hackathonproject.Font.FontelloTextView
             android:id="@+id/search_x"

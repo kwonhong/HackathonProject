@@ -11,12 +11,30 @@ public class SearchService {
 
     public List<SearchResult> getSearchResults(String query) {
 
+        List<String> categoryTexts = SearchCategory.categoryList;
         List<SearchResult> searchResults = new ArrayList<>();
+        for (String string: categoryTexts) {
+            if (string.contains(query)) {
+//                searchResults.add(new SE)
+
+            }
+        }
         // TODO Get Search Result & Populate
 
 
         return searchResults;
 
+    }
+
+    public void populateAutoCompleteStrings(List<String> list, String word) {
+
+        list.clear();
+        List<String> stringList = SearchCategory.categoryList;
+        for (String string: stringList) {
+            if (string.toLowerCase().contains(word.toLowerCase())) {
+                list.add(string);
+            }
+        }
     }
 
     public List<SearchResult> getSampleResults() {
