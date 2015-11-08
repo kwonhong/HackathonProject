@@ -4,15 +4,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
+import com.hackathonproject.Login.SelectUserListAdapter;
 import com.hackathonproject.R;
+import com.hackathonproject.Routine.RoutineService;
 
 public class MyRoutineActivity extends AppCompatActivity {
+
+    private RoutineService routineService = new RoutineService();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_routine);
+
+        RoutineAdapter routineAdapter = new RoutineAdapter(this);
+        routineAdapter.setRoutineList(routineService.getAllUserRoutine());
+        ListView listView = (ListView) findViewById(R.id.list_view);
+        listView.setAdapter(routineAdapter);
     }
 
     @Override

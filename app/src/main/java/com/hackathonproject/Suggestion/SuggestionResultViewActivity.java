@@ -2,10 +2,8 @@ package com.hackathonproject.Suggestion;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
@@ -18,18 +16,12 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.hackathonproject.R;
 import com.hackathonproject.Routine.Routine;
 import com.hackathonproject.Routine.RoutineService;
-import com.hackathonproject.Search.QueryOption;
 import com.hackathonproject.Search.SearchCategory;
 import com.hackathonproject.Search.SearchResult;
-import com.hackathonproject.Search.SearchResultParser;
 import com.hackathonproject.Search.SearchService;
-import com.hackathonproject.User.Location;
-import com.hackathonproject.User.User;
 import com.hackathonproject.User.UserService;
 
-import org.json.JSONObject;
-
-import java.util.Date;
+import org.joda.time.DateTime;
 
 public class SuggestionResultViewActivity extends AppCompatActivity {
 
@@ -69,10 +61,10 @@ public class SuggestionResultViewActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 // Find the routine by entityID
-//                routine
+//                Routine routine = routineService.findUserRoutine();
 
                 // Not found, add a new one in
-                Routine routine = new Routine(new Date().getTime(), Integer.parseInt(searchResult.getEntTypeID()), Integer.parseInt(searchResult.getEntID()), 0 );
+                Routine routine = new Routine(new DateTime().getHourOfDay(), Integer.parseInt(searchResult.getEntTypeID()), Integer.parseInt(searchResult.getEntID()), 0 );
                 routine.save();
             }
         });

@@ -38,9 +38,9 @@ public class SearchActivity extends AppCompatActivity {
 
         //Creating the instance of ArrayAdapter containing list of language names
         List<String> list = new ArrayList<>();
-        searchService.populateAutoCompleteStrings(list, "a");
         ArrayAdapter<String> adapter = new ArrayAdapter<String>
                 (this,android.R.layout.select_dialog_item,list);
+        searchService.populateAutoCompleteStrings(list, "a");
         //Getting the instance of AutoCompleteTextView
         autoCompleteTextView= (AutoCompleteTextView)findViewById(R.id.search_field);
         autoCompleteTextView.setThreshold(1);//will start working from first character

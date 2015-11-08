@@ -15,8 +15,8 @@ public class Routine extends SugarRecord<Routine> {
         // Default Constructor required for sugarRecord
     }
 
-    private long time;
-    private int entityTypeID;
+    private int hour;
+    private int entitypTypeID;
     private int entityID;
     private int frequency;
 }

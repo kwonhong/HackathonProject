@@ -15,6 +15,7 @@
         android:layout_height="wrap_content">
 
         <com.hackathonproject.Font.RobotoTextView
+            android:id="@+id/bestTxtView"
             style="@style/TextViewAppearance.Body1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -27,9 +28,11 @@
         <com.hackathonproject.Font.RobotoTextView
             style="@style/TextViewAppearance.Body1"
             android:id="@+id/myRoutineBtn"
+            android:layout_alignBottom="@+id/bestTxtView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingRight="0dp"
+            android:layout_marginBottom="0dp"
             android:layout_alignParentRight="true"
             android:background="@drawable/transparent_button_selector"
             android:paddingBottom="0dp"

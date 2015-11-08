@@ -8,6 +8,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.hackathonproject.R;
+import com.hackathonproject.Routine.Routine;
 import com.hackathonproject.User.User;
 import com.hackathonproject.User.UserService;
 
@@ -25,6 +26,14 @@ public class SelectUserActivity extends AppCompatActivity {
         selectUserListAdapter.setUserList(userService.getDefaultUser());
         ListView listView = (ListView) findViewById(R.id.userList);
         listView.setAdapter(selectUserListAdapter);
+        insertFirstRoutine();
+
+    }
+
+    public void insertFirstRoutine() {
+        Routine routine = new Routine(-1, -1, -1, -1);
+        routine.setId(0L);
+        routine.save();
 
     }
 
