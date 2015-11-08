@@ -17,7 +17,6 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         app:cardElevation="5dp"
-        android:clickable="true"
         app:cardUseCompatPadding="false">
 
         <LinearLayout

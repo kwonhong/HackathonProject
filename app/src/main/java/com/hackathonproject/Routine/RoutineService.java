@@ -32,11 +32,15 @@ public class RoutineService {
         Collections.sort(routineList, new Comparator<Routine>() {
             @Override
             public int compare(Routine r1, Routine r2) {
-                return r1.getFrequency() - r2.getFrequency();
+                return r2.getFrequency() - r1.getFrequency();
             }
         });
 
         // Getting the most routine at certain hour with most frequency.
+        if (routineList.isEmpty()) {
+            return null;
+        }
+
         return routineList.get(0);
     }
 
@@ -50,7 +54,7 @@ public class RoutineService {
             Collections.sort(routineList, new Comparator<Routine>() {
                 @Override
                 public int compare(Routine r1, Routine r2) {
-                    return r1.getFrequency() - r2.getFrequency();
+                    return r2.getFrequency() - r1.getFrequency();
                 }
             });
 
@@ -70,11 +74,17 @@ public class RoutineService {
         routine.save();
     }
 
-//    public Routine findUserRoutine() {
-//        Select selectQueryBuilder = Select.from(Routine.class)
-//                .where(Condition.prop("").gt(currentTime.getTime() - offset))
-//                .where(Condition.prop("data").gt(currentTime.getTime() + offset));
-//    }
+    public Routine findUserRoutine(int entityID) {
+        Select selectQueryBuilder = Select.from(Routine.class)
+                .where(Condition.prop("entity_ID").eq(entityID));
+        List<Routine> routineList = selectQueryBuilder.list();
+        if (!routineList.isEmpty()) {
+            return routineList.get(0);
+        }
+        return null;
+
+
+    }
 
     public List<Routine> getDefaultRoutine() {
         return Arrays.asList(new Routine(), new Routine(), new Routine());

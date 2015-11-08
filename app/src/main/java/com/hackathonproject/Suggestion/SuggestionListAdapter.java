@@ -13,7 +13,10 @@ import com.hackathonproject.R;
 import com.hackathonproject.Search.SearchCategory;
 import com.hackathonproject.Search.SearchResult;
 
+import org.joda.time.DateTime;
+
 import java.util.List;
+import java.util.Random;
 
 import lombok.Setter;
 
@@ -52,17 +55,14 @@ public class SuggestionListAdapter extends BaseAdapter {
 
         final SearchResult searchResult = searchResultList.get(position);
         if (searchResult != null) {
-//            viewHolder.titleTxtView.setText(searchResult.getName());
+
+            viewHolder.imageView.setImageDrawable(context.getResources().getDrawable(SearchCategory.sampleDrawbles.get(new Random().nextInt(SearchCategory.sampleDrawbles.size()))));
             viewHolder.imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
-            convertView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(context, SuggestionResultViewActivity.class);
-                    intent.putExtra(SearchCategory.SEARCH_ENTITY_ID, Integer.parseInt(searchResult.getEntID()));
-                    context.startActivity(intent);
-                }
-            });
+            String string = searchResult.getName() + ":\nPlease consider our alternative option. " +
+                    "The alternative has been chosen based on your routine and preferences. Press for more information";
+            viewHolder.titleTxtView.setText(string);
+
         }
 
 

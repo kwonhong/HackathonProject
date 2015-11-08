@@ -1,7 +1,11 @@
 package com.hackathonproject.Search;
 
-import com.google.common.collect.ImmutableMap;
+import android.graphics.drawable.Drawable;
 
+import com.google.common.collect.ImmutableMap;
+import com.hackathonproject.R;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +18,14 @@ public class SearchCategory {
     public static final List<String> categoryList = Arrays.asList(
             "Winery", "ATM", "Train Station", "Commuter Rail Station", "Bus Station", "Named Place", "Ferry Terminal", "Marina", "Public Sports Airport", "Airport", "Business Facility", "Grocery Store", "Auto Dealerships", "Auto Dealership-Used Cars", "Petrol/Gasoline Station", "Motorcycle Dealership", "Restaurant", "Nightlife", "Historical Monument", "Bank", "Shopping", "Hotel", "Ski Resort", "Other Accommodation", "Ski Lift", "Tourist Information", "Rental Car Agency", "Parking Lot", "Parking Garage/House", "Park & Ride", "Auto Service & Maintenance", "Cinema", "Rest Area", "Performing Arts", "Bowling Centre", "Sports Complex", "Park/Recreation Area", "Casino", "Convention/Exhibition Centre", "Golf Course", "Civic/Community Centre", "Amusement Park", "Sports Centre", "Ice Skating Rink", "Tourist Attraction", "Hospital", "Higher Education", "School", "Library", "Museum", "Automobile Club", "City Hall", "Court House", "Police Station", "Campground", "Truck Stop/Plaza", "Government Office", "Post Office", "Convenience Store", "Clothing Store", "Department Store", "Home Specialty Store", "Pharmacy", "Specialty Store", "Sporting Goods Store", "Medical Service", "Residential Area/Building", "Cemetery", "Highway Exit", "Transportation Service", "Weigh Station", "Cargo Centre", "Military Base", "Animal Park", "Truck Dealership", "Home Improvement & Hardware Store", "Consumer Electronics Store", "Office Supply & Services Store", "Industrial Zone", "Place of Worship", "Embassy", "County Council", "Bookstore", "Coffee Shop", "Hamlet", "Border Crossing"
     );
+
+        public static final List<Integer> sampleDrawbles = Arrays.asList(
+                R.drawable.sample1,
+                R.drawable.sample2,
+                R.drawable.sample3,
+                R.drawable.sample4,
+                R.drawable.sample5,
+                R.drawable.sample6);
 
     public static final ImmutableMap<String, Integer> categoryToEntityMap =
             new ImmutableMap.Builder<String, Integer>()

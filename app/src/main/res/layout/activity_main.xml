@@ -73,13 +73,14 @@
                 android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/imgView"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/drag_and_drop_background_image" />
 
                 <com.hackathonproject.Font.RobotoTextView
-                    android:id="@+id/monthTxtView"
+                    android:id="@+id/descriptionTxtView"
                     style="@style/TextViewAppearance.Display1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -121,16 +122,16 @@
                     android:layout_gravity="center"
                     android:background="@drawable/transparent_button_selector"
                     android:gravity="center"
-                    android:text="Like"
+                    android:text="Get Detail"
                     android:textColor="@color/white"
-                    android:textSize="20dp" />
+                    android:textSize="15dp" />
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:cardElevation="5dp"
             app:cardUseCompatPadding="false">
@@ -148,9 +149,9 @@
                     android:layout_height="match_parent"
                     android:layout_margin="0dp"
                     android:background="@drawable/transparent_button_selector"
-                    android:text="UnLike"
+                    android:text="Search Instead"
                     android:textColor="@color/white"
-                    android:textSize="20dp" />
+                    android:textSize="15dp" />
 
             </LinearLayout>
         </android.support.v7.widget.CardView>

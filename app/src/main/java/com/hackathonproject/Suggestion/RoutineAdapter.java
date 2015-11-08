@@ -11,6 +11,8 @@ import android.widget.TextView;
 import com.hackathonproject.NewsFeed.NewsFeedActivity;
 import com.hackathonproject.R;
 import com.hackathonproject.Routine.Routine;
+import com.hackathonproject.Search.SearchResult;
+import com.hackathonproject.Search.SearchService;
 import com.hackathonproject.User.User;
 import com.hackathonproject.User.UserService;
 
@@ -23,6 +25,7 @@ public class RoutineAdapter extends BaseAdapter {
 
     private LayoutInflater inflater;
     private Context context;
+    private SearchService searchService = new SearchService();
 
     @Setter
     private List<Routine> routineList;
@@ -54,39 +57,17 @@ public class RoutineAdapter extends BaseAdapter {
         final ViewHolder viewHolder = (ViewHolder) convertView.getTag();
 
         Routine routine = routineList.get(position);
-
-//        final User user = userList.get(position);
-//        viewHolder.name.setText("Name: " + user.getUserName());
-//        viewHolder.type.setText("Type: " + User.LoginType.getLoginType(user.getLoggedInType()).toString());
-//        convertView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                User.LoginType loginType = User.LoginType.getLoginType(user.getLoggedInType());
-//                switch (loginType) {
-//                    case FOLLOWING:
-//                        Intent intent = new Intent(context, NewsFeedActivity.class);
-//                        UserService.selectedUser = user;
-//                        context.startActivity(intent);
-//                        break;
-//
-//                    case USER:
-//                        Intent suggestionIntent = new Intent(context, SuggestionActivity.class);
-//                        UserService.selectedUser = user;
-//                        context.startActivity(suggestionIntent);
-//                        break;
-//                }
-//
-//            }
-//        });
+        SearchResult searchResult = searchService.getSearchResult(routine.getEntityID());
+        int hourEnd = routine.getHour() + 1;
+        viewHolder.timeTxtView.setText("Between " + routine.getHour() + " - " + hourEnd);
+        viewHolder.titleTxtView.setText(searchResult.getName());
 
         return convertView;
     }
 
     private static class ViewHolder {
-        public CircleImageView imageView;
-        public TextView type;
-        public TextView name;
-        public TextView btnLogin;
+        public TextView timeTxtView;
+        public TextView titleTxtView;
     }
 
     private View setUpConvertView(ViewGroup parent) {
@@ -94,10 +75,8 @@ public class RoutineAdapter extends BaseAdapter {
         final ViewHolder holder = new ViewHolder();
         final View convertView = inflater.inflate(R.layout.item_routine, parent, false);
 
-//        holder.imageView = (CircleImageView) convertView.findViewById(R.id.imageView);
-//        holder.type = (TextView) convertView.findViewById(R.id.typeTxtView);
-//        holder.name = (TextView) convertView.findViewById(R.id.nameTxtView);
-//        holder.btnLogin = (TextView) convertView.findViewById(R.id.loginBtn);
+        holder.timeTxtView = (TextView) convertView.findViewById(R.id.timeTxtView);
+        holder.titleTxtView = (TextView) convertView.findViewById(R.id.titleTxtView);
 
         convertView.setTag(holder);
         return convertView;

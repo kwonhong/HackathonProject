@@ -198,7 +198,7 @@
                         android:layout_margin="8dp"
                         android:background="@drawable/transparent_button_selector"
                         android:padding="8dp"
-                        android:text="ACCEPT"
+                        android:text="Good Suggestion"
                         android:textColor="@color/material_green_900"
                         android:textSize="14sp"
                         app:typeface="robotoMedium" />
@@ -210,7 +210,7 @@
                         android:layout_margin="8dp"
                         android:background="@drawable/transparent_button_selector"
                         android:padding="8dp"
-                        android:text="DECLINE"
+                        android:text="Bad Suggestion"
                         android:textColor="@color/material_red_900"
                         android:textSize="14sp"
                         app:typeface="robotoMedium" />

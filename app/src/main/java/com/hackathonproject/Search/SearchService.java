@@ -1,6 +1,8 @@
 package com.hackathonproject.Search;
 
+import com.beust.jcommander.JCommander;
 import com.hackathonproject.User.Location;
+import com.hackathonproject.YelpApi.YelpAPI;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,10 +13,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 
@@ -22,6 +26,8 @@ import org.json.JSONObject;
  * Created by james on 15-11-07.
  */
 public class SearchService {
+
+    private String firstLocation = "yale University";
 
     public List<SearchResult> getSearchResults(String query) {
 
@@ -51,6 +57,30 @@ public class SearchService {
         // TODO Get Search Result & Populate
         return Collections.emptyList();
     }
+
+    public List<SearchResult> getSearchResultWithTypeId(int entityTypeID) {
+        try {
+            QueryOption qo = new QueryOption();
+            qo.setAtitude(40.83274904439099);
+            qo.setLongitude(-74.3163299560546935);
+            qo.setDistance(5.0);
+            qo.setEntityTypeId(entityTypeID);
+            qo.setTop(3);
+
+            // Parse Data Received
+            String queryResult = query(qo);
+            JSONObject jsonObject = new JSONObject(queryResult);
+            return SearchResultParser.getSearchResult(jsonObject);
+
+        } catch (Exception je) {
+            System.out.println(je.toString());
+        }
+
+        // TODO Get Search Result & Populate
+        return Collections.emptyList();
+
+    }
+
 
     public SearchResult getSearchResult(int entityID) {
         try {
@@ -83,10 +113,29 @@ public class SearchService {
         }
     }
 
-    public SearchResult getSearchResult(String entityID) {
+    public void SearchWithYelpCall(final String searchKeyWord) {
 
+        final YelpAPI.YelpAPICLI yelpApiCli = new YelpAPI.YelpAPICLI();
+        new JCommander(yelpApiCli, new String[0]);
 
-        return null;
+        final YelpAPI yelpApi = new YelpAPI(YelpAPI.CONSUMER_KEY, YelpAPI.CONSUMER_SECRET, YelpAPI.TOKEN, YelpAPI.TOKEN_SECRET);
+
+        ExecutorService service =  Executors.newSingleThreadExecutor();
+        Future<String> future = service.submit(new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+                return yelpApi.queryAPI(yelpApi, yelpApiCli, searchKeyWord, firstLocation);
+            }
+        });
+
+        try {
+            String result = future.get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public List<SearchResult> getSampleResults() {

@@ -61,11 +61,18 @@ public class SuggestionResultViewActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 // Find the routine by entityID
-//                Routine routine = routineService.findUserRoutine();
+                Routine existingRoutine = routineService.findUserRoutine(searchEntityID);
+                if (existingRoutine != null) {
+                    existingRoutine.setFrequency(existingRoutine.getFrequency() + 1);
+                    existingRoutine.save();
+                } else {
+                    // Not found, add a new one in
+                    Routine routine = new Routine(new DateTime().getHourOfDay(), Integer.parseInt(searchResult.getEntTypeID()), Integer.parseInt(searchResult.getEntID()), 0 );
+                    routine.save();
+                }
 
-                // Not found, add a new one in
-                Routine routine = new Routine(new DateTime().getHourOfDay(), Integer.parseInt(searchResult.getEntTypeID()), Integer.parseInt(searchResult.getEntID()), 0 );
-                routine.save();
+                Intent intent = new Intent(getApplicationContext(), SuggestionActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -73,6 +80,11 @@ public class SuggestionResultViewActivity extends AppCompatActivity {
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Routine existingRoutine = routineService.findUserRoutine(searchEntityID);
+                if (existingRoutine != null) {
+                    existingRoutine.setFrequency(-1);
+                    existingRoutine.save();
+                }
                 //TODO Set the frequency counter back to zero if exist in database
                 finish();
             }

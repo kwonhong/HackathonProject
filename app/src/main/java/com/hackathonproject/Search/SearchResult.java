@@ -7,12 +7,19 @@ import java.math.BigDecimal;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-/**
- * Created by james on 15-11-07.
- */
 @Data @AllArgsConstructor
 public class SearchResult {
     public SearchResult() {
+    }
+
+    public SearchResult(String name, double distance, Location location, String phoneNumber, String address, String entTypeID, String entID) {
+        this.name = name;
+        this.distance = distance;
+        this.location = location;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.entTypeID = entTypeID;
+        this.entID = entID;
     }
 
     private String name;
@@ -22,6 +29,10 @@ public class SearchResult {
     private String address;
     private String entTypeID;
     private String entID;
+    private String imgUrl;
+    private boolean isClosed;
+    private String rating;
+    private String contactInfo;
 
 }
 
