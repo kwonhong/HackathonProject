@@ -40,6 +40,12 @@ public class RoutineService {
         routine.save();
     }
 
+    public void findUserRoutine() {
+//        Select selectQueryBuilder = Select.from(Routine.class)
+//                .where(Condition.prop("data").gt(currentTime.getTime() - offset))
+//                .where(Condition.prop("data").gt(currentTime.getTime() + offset));
+    }
+
     public List<Routine> getDefaultRoutine() {
         return Arrays.asList(new Routine(), new Routine(), new Routine());
     }

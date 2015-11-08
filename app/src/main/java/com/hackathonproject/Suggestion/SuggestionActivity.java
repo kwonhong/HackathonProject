@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ import com.hackathonproject.User.UserService;
 public class SuggestionActivity extends AppCompatActivity {
 
     private RoutineService routineService = new RoutineService();
+    private SearchService searchService = new SearchService();
     private int searchEntityID;
 
     @Override
@@ -31,6 +33,7 @@ public class SuggestionActivity extends AppCompatActivity {
         TextView btnLike = (TextView) findViewById(R.id.btnLike);
         TextView btnUnLike = (TextView) findViewById(R.id.btnUnLike);
 
+        searchEntityID = 996564435;
         btnLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,6 +47,20 @@ public class SuggestionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ListView listView = (ListView) findViewById(R.id.list);
+        SuggestionListAdapter suggestionListAdapter = new SuggestionListAdapter(this);
+        suggestionListAdapter.setSearchResultList(searchService.getSampleResults());
+        listView.setAdapter(suggestionListAdapter);
+
+        TextView myRoutineBtn = (TextView) findViewById(R.id.myRoutineBtn);
+        myRoutineBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MyRoutineActivity.class);
                 startActivity(intent);
             }
         });

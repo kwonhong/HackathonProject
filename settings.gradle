@@ -1,1 +1,1 @@
-include ':app', ':AnimatedExpandableListView', ':MaterialRippleLayout', ':StickyListHeaders', ':CircularProgressButton', ':android-support-v7-appcompat'
+include ':app', ':AnimatedExpandableListView', ':MaterialRippleLayout', ':StickyListHeaders', ':CircularProgressButton', ':android-support-v7-appcompat', ':SpeechKit'

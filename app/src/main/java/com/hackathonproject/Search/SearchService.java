@@ -1,11 +1,13 @@
 package com.hackathonproject.Search;
 
+import com.hackathonproject.User.Location;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -88,12 +90,11 @@ public class SearchService {
     }
 
     public List<SearchResult> getSampleResults() {
-//        return Arrays.asList(
-//                new SearchResult("Result1", 1.0, new Loca),
-//                new SearchResult("Result2", 1.0),
-//                new SearchResult("Result3", 1.0)
-//        );
-        return Collections.emptyList();
+        return Arrays.asList(
+                new SearchResult("Result1", 1.0, new Location(0.0, 0.0),"", "", "", ""),
+                new SearchResult("Result1", 1.0, new Location(0.0, 0.0),"", "", "", "")
+        );
+//        return Collections.emptyList();
     }
 
     public static String query(final QueryOption qp) {

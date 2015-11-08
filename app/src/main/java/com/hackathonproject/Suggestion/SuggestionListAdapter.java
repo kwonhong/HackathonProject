@@ -1,4 +1,4 @@
-package com.hackathonproject.Search;
+package com.hackathonproject.Suggestion;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,26 +6,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-
 import com.hackathonproject.R;
-import com.hackathonproject.Suggestion.SuggestionResultViewActivity;
+import com.hackathonproject.Search.SearchCategory;
+import com.hackathonproject.Search.SearchResult;
 
 import java.util.List;
 
 import lombok.Setter;
 
-/**
- * Created by james on 15-08-20.
- */
-public class SearchResultListAdapter extends BaseAdapter{
+public class SuggestionListAdapter extends BaseAdapter {
 
     private LayoutInflater inflater;
     private Context context;
-    @Setter private List<SearchResult> searchResultList;
+    @Setter
+    private List<SearchResult> searchResultList;
 
-    public SearchResultListAdapter(Context context) {
+    public SuggestionListAdapter(Context context) {
         this.inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.context = context;
@@ -52,33 +51,39 @@ public class SearchResultListAdapter extends BaseAdapter{
         final ViewHolder viewHolder = (ViewHolder) convertView.getTag();
 
         final SearchResult searchResult = searchResultList.get(position);
-        viewHolder.distance.setText(Double.toString(searchResult.getDistance()));
-        viewHolder.title.setText(searchResult.getName());
-        convertView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, SuggestionResultViewActivity.class);
-                intent.putExtra(SearchCategory.SEARCH_ENTITY_ID, Integer.parseInt(searchResult.getEntID()));
-                context.startActivity(intent);
-            }
-        });
+        if (searchResult != null) {
+//            viewHolder.titleTxtView.setText(searchResult.getName());
+            viewHolder.imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+            convertView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, SuggestionResultViewActivity.class);
+                    intent.putExtra(SearchCategory.SEARCH_ENTITY_ID, Integer.parseInt(searchResult.getEntID()));
+                    context.startActivity(intent);
+                }
+            });
+        }
+
+
 
         return convertView;
     }
 
     private static class ViewHolder {
-        public TextView distance;
-        public TextView title;
+        public ImageView imageView;
+        public TextView titleTxtView;
     }
 
     private View setUpConvertView(ViewGroup parent) {
 
         final ViewHolder holder = new ViewHolder();
-        final View convertView = inflater.inflate(R.layout.list_item_icon_and_title, parent, false);
+        final View convertView = inflater.inflate(R.layout.list_item_suggestion, parent, false);
 
-        holder.distance = (TextView) convertView.findViewById(R.id.distance);
-        holder.title = (TextView) convertView.findViewById(R.id.name);
+        holder.titleTxtView = (TextView) convertView.findViewById(R.id.titleTxtView);
+        holder.imageView = (ImageView) convertView.findViewById(R.id.imgView);
         convertView.setTag(holder);
         return convertView;
     }
 }
+

@@ -16,6 +16,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.hackathonproject.R;
+import com.hackathonproject.Routine.Routine;
+import com.hackathonproject.Routine.RoutineService;
 import com.hackathonproject.Search.QueryOption;
 import com.hackathonproject.Search.SearchCategory;
 import com.hackathonproject.Search.SearchResult;
@@ -27,10 +29,13 @@ import com.hackathonproject.User.UserService;
 
 import org.json.JSONObject;
 
+import java.util.Date;
+
 public class SuggestionResultViewActivity extends AppCompatActivity {
 
     private UserService userService = new UserService();
     private SearchService searchService = new SearchService();
+    private RoutineService routineService = new RoutineService();
 
     private TextView btnAccept;
     private TextView btnCancel;
@@ -45,16 +50,30 @@ public class SuggestionResultViewActivity extends AppCompatActivity {
         // Getting the searchResultEntityID
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            String searchEntitiyIDString =extras.getString(SearchCategory.SEARCH_ENTITY_ID);
-            searchEntityID = Integer.parseInt(searchEntitiyIDString.trim());
+            searchEntityID = extras.getInt(SearchCategory.SEARCH_ENTITY_ID);
+        }
+
+        final SearchResult searchResult = searchService.getSearchResult(searchEntityID);
+        if (searchResult != null) {
+            TextView descriptionTxtView = (TextView) findViewById(R.id.descriptionTxtView);
+            descriptionTxtView.setText(searchResult.getName());
+
+            TextView contactTxtView = (TextView) findViewById(R.id.contanctTxtView);
+            contactTxtView.setText(searchResult.getPhoneNumber());
+            setUpLocation(searchResult);
         }
 
         btnAccept = (TextView) findViewById(R.id.btnAccept);
         btnAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO Save Routine
 
+                // Find the routine by entityID
+//                routine
+
+                // Not found, add a new one in
+                Routine routine = new Routine(new Date().getTime(), Integer.parseInt(searchResult.getEntTypeID()), Integer.parseInt(searchResult.getEntID()), 0 );
+                routine.save();
             }
         });
 
@@ -63,30 +82,18 @@ public class SuggestionResultViewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //TODO Set the frequency counter back to zero if exist in database
+                finish();
             }
         });
 
-        SearchResult searchResult = searchService.getSearchResult(searchEntityID);
-        TextView descriptionTxtView = (TextView) findViewById(R.id.descriptionTxtView);
-        descriptionTxtView.setText(searchResult.getName());
-
-        TextView contanctTxtView = (TextView) findViewById(R.id.contanctTxtView);
-        contanctTxtView.setText(searchResult.getPhoneNumber());
-
-//        MapFragment googleMap = (MapFragment) findViewById(R.id.map);
-
-
-
-
-
-
-
     }
 
-    private void setUpLocation() {
-        LatLng DAVAO = new LatLng(7.0722, 125.6131);
+    private void setUpLocation(SearchResult searchResult) {
+        LatLng DAVAO =
+                new LatLng(searchResult.getLocation().getLatitude(), searchResult.getLocation().getLongitude());
         map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
-        Marker davao = map.addMarker(new MarkerOptions().position(DAVAO).title("Davao City").snippet("Ateneo de Davao University"));
+        Marker davao = map.addMarker(
+                new MarkerOptions().position(DAVAO).title(searchResult.getAddress()).snippet("Ateneo de Davao University"));
 
         // zoom in the camera to Davao city && animate the zoom process
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(DAVAO, 15));

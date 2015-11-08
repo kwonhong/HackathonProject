@@ -93,33 +93,34 @@ public class QueryOption {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(this.urlBase);
-        if ((this.atitude != null && !this.atitude.isEmpty()) || (this.longitude != null && !this.longitude.isEmpty()) || (this.distance != null && !this.distance.isEmpty())
-                || (this.address != null && !this.address.isEmpty())) {
-            sb.append("?spatialFilter=nearby(");
-            if (this.atitude != null && !this.atitude.isEmpty()) {
+        sb.append("?");
+        if ((this.atitude!=null && !this.atitude.isEmpty()) || (this.longitude!=null && !this.longitude.isEmpty()) || (this.distance!=null && !this.distance.isEmpty())
+                || (this.address!=null && !this.address.isEmpty())) {
+            sb.append("spatialFilter=nearby(");
+            if (this.atitude!=null &&!this.atitude.isEmpty()) {
                 sb.append(this.atitude);
                 sb.append(",");
                 sb.append(this.longitude);
-            } else if (this.address != null && !this.address.isEmpty()) {
+            } else if (this.address!=null &&!this.address.isEmpty()) {
                 sb.append(this.address);
             }
-            if (this.distance != null && !this.distance.isEmpty()) {
+            if (this.distance!=null && !this.distance.isEmpty()) {
                 sb.append(",");
                 sb.append(this.distance);
             }
             sb.append(")");
         }
-        if (this.entityTypeID != null && !this.entityTypeID.isEmpty()) {
+        if (this.entityTypeID!=null && !this.entityTypeID.isEmpty()) {
             sb.append("&$filter=EntityTypeID eq '");
             sb.append(this.entityTypeID);
             sb.append("'");
         }
-        if (this.entityID != null && !this.entityID.isEmpty()) {
-            if (sb.indexOf("filter") == -1) {
+        if (this.entityID!=null && !this.entityID.isEmpty()) {
+            if(sb.indexOf("filter") == -1){
                 sb.append("&$filter=EntityID eq '");
                 sb.append(this.entityID);
                 sb.append("'");
-            } else {
+            }else{
                 sb.append("and EntityID eq '");
                 sb.append(this.entityID);
                 sb.append("'");
@@ -128,7 +129,7 @@ public class QueryOption {
         sb.append("&$format=json");
         sb.append("&$select=");
         sb.append(this.selected);
-        if (!this.top.isEmpty()) {
+        if (this.top!=null && !this.top.isEmpty()) {
             sb.append("&$top=");
             sb.append(this.top);
 

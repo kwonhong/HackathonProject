@@ -67,6 +67,15 @@
             android:name=".NewsFeed.DetailNewsActivity"
             android:label="@string/title_activity_detail_news" >
         </activity>
+
+        <!-- <activity android:name=".Nuance.NLUActivity"> -->
+
+
+        <!-- </activity> -->
+        <activity
+            android:name=".Suggestion.MyRoutineActivity"
+            android:label="@string/title_activity_my_routine" >
+        </activity>
     </application>
 
 </manifest>

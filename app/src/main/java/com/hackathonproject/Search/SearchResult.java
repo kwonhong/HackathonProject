@@ -12,6 +12,9 @@ import lombok.Data;
  */
 @Data @AllArgsConstructor
 public class SearchResult {
+    public SearchResult() {
+    }
+
     private String name;
     private double distance;
     private Location location;

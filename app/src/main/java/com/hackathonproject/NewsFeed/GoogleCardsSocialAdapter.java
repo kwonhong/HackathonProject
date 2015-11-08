@@ -1,15 +1,11 @@
 package com.hackathonproject.NewsFeed;
 
-import java.util.List;
-
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,7 +13,8 @@ import android.widget.TextView;
 import com.hackathonproject.R;
 import com.hackathonproject.Routine.Routine;
 import com.hackathonproject.Search.SearchActivity;
-import com.hackathonproject.User.User;
+
+import java.util.List;
 
 import lombok.Setter;
 
@@ -88,10 +85,10 @@ public class GoogleCardsSocialAdapter extends BaseAdapter{
 
 
 
-		Routine routine = routineList.get(position);
-		holder.text.setText(R.string.lorem_ipsum_short);
-		holder.like.setTag(position);
-		holder.follow.setTag(position);
+//		Routine routine = routineList.get(position);
+//		holder.text.setText(R.string.lorem_ipsum_short);
+//		holder.like.setTag(position);
+//		holder.follow.setTag(position);
 
 		return convertView;
 	}
